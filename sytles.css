@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    font-family: "roboto";
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border: 1px solid red;
+}
+
+.header{
+    text-align: center;
+    background-color: rgb(212, 212, 212);
+    width: 100%;
+}
+
+.canvas {
+    background-color: rgb(214, 154, 154);
+    padding: 1rem;
+    border-radius: 1rem;
+    flex: 1;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1 / 1;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.interface {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    background-color: rgb(212, 212, 212);
+    padding: 1rem;
+}
+
+.interfaceRight, .interfaceLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: rgb(255, 237, 215);
+    border-radius: 1rem;
+}
+
+.colorPicker {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.color {
+    flex: 1;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+.colorRow {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+}
+
+.clear {
+    padding: 1rem 2rem;
+}
+
+.slidecontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.pixel {
+    flex: 1;
+    border: .5px solid rgb(119, 119, 119);
+}
+
+
+/* Color Squares */
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.white {
+    background-color: white;
+}
+
+.black {
+    background-color: black;
+}
+
+@media screen and (max-width: 900px) {
+    .interface{
+        flex-direction: column-reverse;
+        justify-content: stretch;
+        flex: 1;
+    }
+
+    .game {
+        flex: 1;
+    }
+
+    body {
+        align-items: stretch;
+    }
+
+    .interfaceLeft{
+        flex: 1;
+    }
+}
