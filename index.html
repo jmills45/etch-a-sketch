@@ -16,7 +16,7 @@
             </h1>
         </header>
         <div class="interface">
-            <div class="interfaceLeft">
+            <div class="interfaceTop">
                 <div class="slidecontainer">
                     <h3>Grid Size</h3>
                     <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
@@ -24,49 +24,19 @@
                 </div>
 
                 <div class="controls">
-                    <button class="clear">Clear</button>
+                    <button class="clearButton">Clear</button>
+                    <button class="gridButton">Grid</button>
                 </div>
 
-                <div class="colorPicker">
-                    <div class="colorRow">
-                        <div class="color red">
-                            
-                        </div>
-                        <div class="color orange">
-                            
-                        </div>
-                        <div class="color yellow">
-                        
-                        </div>
-                    </div>
-                    <div class="colorRow">
-                        <div class="color green">
-                            
-                        </div>
-                        <div class="color blue">
-                        
-                        </div>
-                        <div class="color purple">
-                        
-                        </div>
-                    </div>
-                    <div class="colorRow">
-                        <div class="color grey">
-                        
-                        </div>
-                        <div class="color white">
-                        
-                        </div>
-                        <div class="color black">
-                        
-                        </div>
-                    </div>
+                <div class="colorContainer">
+                    <input type="color" class="colorPicker" name="head"
+                           value="black">
+                    <label for="head">Color</label>
                 </div>
-                
             </div>
 
-            <div class ="canvas">
-                <div class="container">
+            <div class ="canvasContainer">
+                <div class="canvas">
 
                 </div> 
             </div>

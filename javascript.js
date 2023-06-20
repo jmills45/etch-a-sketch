@@ -1,81 +1,76 @@
-const container = document.querySelector(".container");
+let color;
+let mouseDown = false;
+
+const container = document.querySelector(".canvas");
 const slider = document.querySelector(".slider");
 const sliderNum = document.querySelector(".sliderNum");
-const colorPicker = document.querySelectorAll(".color");
-const clearButton = document.querySelector(".clear");
+const colorPicker = document.querySelector(".colorPicker");
+const clearButton = document.querySelector(".clearButton");
+const gridButton = document.querySelector(".gridButton");
 
+colorPicker.addEventListener("input", chooseColor);
 clearButton.addEventListener("click", clearGrid);
+container.addEventListener("mousedown", checkMouse);
+container.addEventListener("mouseup", checkMouse);
+gridButton.addEventListener("click", toggleGrid);
 
-let color = "black";
-
-for(let i = 0; i < colorPicker.length; i++) {
-    colorPicker[i].addEventListener("click", chooseColor);
-}
-
+// Display slider value and update gride on input
 sliderNum.textContent = slider.value;
-
 slider.oninput = function() {
     sliderNum.textContent = this.value;
     clearGrid();
 }
 
-console.log(slider);
-console.log(sliderNum);
-
-container.addEventListener("mousedown", checkMouseDown)
-container.addEventListener("mouseup", checkMouseUp)
-
-let mouseDown = false;
-
 function chooseColor(e) {
-    color = e.target.classList.value
-    color = color.split(' ').pop();
-    console.log(color);
+    color = colorPicker.value;
 }
 
 function drawGrid(gridSize) {
     for (let i = 0; i < gridSize; i++){
-
         const row = document.createElement('div');
         row.classList.add("row");
 
         for (let i = 0; i < gridSize; i++){
-
             const pixel = document.createElement('div');
-            pixel.classList.add("pixel");
+            pixel.classList.add("pixel","grid");
             pixel.addEventListener("mousemove", draw);
             row.appendChild(pixel);
         }
-
         container.appendChild(row);
     }
 }
 
-function removeGrid(){
+function clearGrid(){
     while (container.hasChildNodes()){
         container.removeChild(container.firstChild);
     }
-}
-
-function clearGrid(){
-    removeGrid();
     drawGrid(sliderNum.textContent);
 }
 
-function checkMouseDown() {
-    mouseDown = true;
-    console.log("mouse down");
+function toggleGrid() {
+    const pixel = document.querySelectorAll(".pixel");
+    pixel.forEach((element) => {
+        element.classList.toggle("grid");
+    })
 }
 
-function checkMouseUp() {
-    mouseDown = false;
-    console.log("mouse up");
+function checkMouse(e) {
+    console.log(e);
+    if (e.type === "mousedown") {
+        mouseDown = true;
+    } else if (e.type === "mouseup") {
+        mouseDown = false;
+    } else {
+        return;
+    }  
 }
 
 function draw(e){
+    if (color === undefined) color = "black";
+
     if (mouseDown === true) {
     e.target.style.backgroundColor = color; 
     }
 }
-
+// Draw grid on load
 drawGrid(16);

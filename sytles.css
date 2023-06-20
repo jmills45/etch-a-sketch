@@ -11,29 +11,33 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background-color: bisque;
 }
 
 .game {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    border: 1px solid red;
+    width: 40%;
+    border: 5px solid white;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 .header{
     text-align: center;
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(0, 0, 0);
+    color: white;
     width: 100%;
 }
 
-.canvas {
+.canvasContainer {
     background-color: rgb(214, 154, 154);
     padding: 1rem;
     border-radius: 1rem;
     flex: 1;
 }
 
-.container{
+.canvas{
     display: flex;
     flex-direction: column;
     aspect-ratio: 1 / 1;
@@ -45,6 +49,7 @@ body {
 
 .interface {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 1rem;
     width: 100%;
@@ -52,39 +57,24 @@ body {
     padding: 1rem;
 }
 
-.interfaceRight, .interfaceLeft {
+.interfaceTop {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    background-color: rgb(255, 237, 215);
-    border-radius: 1rem;
-}
-
-.colorPicker {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    justify-content: space-around;
     width: 100%;
-    gap: 1rem;
-    padding: 1rem;
 }
 
-.color {
+button {
     flex: 1;
-    border: 1px solid black;
-    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 1rem 2rem;
 }
 
-.colorRow {
+.controls {
     flex: 1;
     display: flex;
+    justify-content: space-around;
     gap: 1rem;
-}
-
-.clear {
-    padding: 1rem 2rem;
+    align-items: center;
 }
 
 .slidecontainer {
@@ -93,7 +83,13 @@ body {
     justify-content: center;
     align-items: center;
     flex: 1;
-    width: 100%;
+}
+
+.colorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
 .row {
@@ -102,64 +98,27 @@ body {
 }
 
 .pixel {
-    flex: 1;
-    border: .5px solid rgb(119, 119, 119);
+    flex: 1;;
 }
 
-
-/* Color Squares */
-.red {
-    background-color: red;
+.grid {
+    border: .5px solid rgb(119, 119, 119)
 }
 
-.orange {
-    background-color: orange;
-}
-
-.yellow {
-    background-color: yellow;
-}
-
-.green {
-    background-color: green;
-}
-
-.blue {
-    background-color: blue;
-}
-
-.purple {
-    background-color: purple;
-}
-
-.grey {
-    background-color: grey;
-}
-
-.white {
-    background-color: white;
-}
-
-.black {
-    background-color: black;
-}
-
-@media screen and (max-width: 900px) {
-    .interface{
-        flex-direction: column-reverse;
-        justify-content: stretch;
-        flex: 1;
-    }
-
+@media screen and (max-width: 1200px){
     .game {
-        flex: 1;
+        width: 100%;
     }
 
     body {
         align-items: stretch;
     }
 
-    .interfaceLeft{
+    .game{
         flex: 1;
     }
-}
+
+    .interface{
+        flex: 1;
+    }
+}    
